@@ -6,10 +6,8 @@ import android.preference.PreferenceManager
 class ListDataManager(private val context: Context) {
     fun saveList(list: TaskList){
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context).edit()
-
-        sharedPreferences.putStringSet(list.name, list.tasks.toHashSet())
-
-        sharedPreferences.apply()
+            sharedPreferences.putStringSet(list.name, list.tasks.toHashSet())
+            sharedPreferences.apply()
     }
 
     fun readLists(): ArrayList<TaskList>{
@@ -29,7 +27,6 @@ class ListDataManager(private val context: Context) {
 
             taskLists.add(list)
         }
-
         return taskLists
     }
 }

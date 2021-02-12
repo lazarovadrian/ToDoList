@@ -3,7 +3,6 @@ package com.lazarovstudio.todolist
 import android.os.Bundle
 import android.text.InputType
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -23,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
             showCreateListDialog()//вызывает функцию модельного окна
         }
 
@@ -31,8 +29,6 @@ class MainActivity : AppCompatActivity() {
         listRecyclerView = findViewById<RecyclerView>(R.id.lists_recyclerview)//связываем RecyclerView с макетом по id
         listRecyclerView.layoutManager = LinearLayoutManager(this)//сообщает чтобы отобразил в макете в линейном формате элементы
         listRecyclerView.adapter = ListSelectionRecyclerViewAdapter(lists)//адаптер для получения данных и отображения и viewHolder для заполнения данных
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -14,8 +14,8 @@ class ListSelectionRecyclerViewAdapter(private val lists: ArrayList<TaskList>) :
 
     override fun onBindViewHolder(holder: ListSelectionViewHolder, position: Int) {
         //устанавливаем значения для каждого TextView
-        holder.listPosition.text = (position + 1).toString()//выводит индекс массива, но на +1 и преобразует в строку
-        holder.listTitle.text = lists.get(position).name//выводит значения массива
+        holder.listPosition.text = (position + 1).toString()//выводит индекс массива,на +1 и преобразует в строку
+        holder.listTitle.text = lists[position].name//выводит значения массива
     }
 //определяет сколько элементов в RecyclerView
     override fun getItemCount(): Int {
@@ -23,8 +23,8 @@ class ListSelectionRecyclerViewAdapter(private val lists: ArrayList<TaskList>) :
     }
 
     fun addList(list:TaskList){
-        lists.add(list)
-        notifyItemInserted(lists.size-1)
+        lists.add(list)//обновляем TaskList
+        notifyItemInserted(lists.size-1)//сообщает адаптеру что обновил список данных и обновляет RacyclerView
     }
 }
 
